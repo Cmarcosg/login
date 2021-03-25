@@ -1,0 +1,46 @@
+<div class="login__container" [ngClass]="getAnimationClasses()">
+  <ion-avatar slot="start">
+    <img src="assets/img/logo.jpg" />
+  </ion-avatar>
+  <div class="login__username">
+    <strong>Prueba técnica</strong>
+  </div>
+  <div class="login__form">
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="email"
+          placeholder="Email"
+          type="email"
+          (ionChange)="onFieldChange()"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input
+          formControlName="pass"
+          placeholder="Password"
+          type="password"
+          maxlength="5"
+          (ionChange)="onFieldChange()"
+        ></ion-input>
+      </ion-item>
+      <div class="login__reminder">
+        <span>Recordar</span>
+        <ion-toggle
+          (ionChange)="onChangeRemindme()"
+          class="login__toogle"
+        ></ion-toggle>
+      </div>
+      <div *ngIf="hasErrors()" class="login__messages">
+        <div *ngFor="let error of errorMessages">
+          <span class="login__error">{{ error.message }}</span>
+        </div>
+      </div>
+      <div class="submit__container">
+        <button type="submit">Acceder</button>
+      </div>
+    </form>
+  </div>
+</div>

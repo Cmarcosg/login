@@ -8,6 +8,10 @@
   transform: translateY(-50%);
 }
 
+ion-content {
+  --background: url("/assets/img/background.jpg") 0 / cover;
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;

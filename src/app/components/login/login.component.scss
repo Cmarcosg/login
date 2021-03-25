@@ -1,0 +1,142 @@
+.login {
+  &__container {
+    min-height: 450px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    background-color: transparent;
+
+    @media (min-width: 960px) {
+      background-color: white;
+      width: 447px;
+    }
+
+    ion-avatar {
+      --border-radius: 0;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+      height: 109px;
+      width: 114px;
+    }
+  }
+
+  &__username {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    display: none;
+    margin-bottom: 20px;
+
+    @media (min-width: 960px) {
+      display: block;
+    }
+  }
+
+  &__reminder {
+    background-color: white;
+    height: 51px;
+    padding-top: 7px;
+    padding-left: 19px;
+    span {
+      position: relative;
+      top: 8px;
+    }
+  }
+
+  &__toogle {
+    float: right !important;
+  }
+
+  &__messages {
+    padding: 20px;
+    background-color: white;
+  }
+
+  &__error {
+    color: red;
+  }
+
+  &__submit {
+    &--success {
+      animation: spin 1s forwards;
+    }
+    &--error {
+      animation: temble 1s forwards;
+    }
+  }
+}
+
+.submit__container {
+  text-align: center;
+  background-color: #0d63bc;
+
+  @media (min-width: 960px) {
+    margin-top: 50px;
+    background-color: transparent;
+  }
+
+  button {
+    background: transparent;
+    color: white;
+    border: 2px solid #0d63bc;
+    border-radius: 22px;
+    width: 142px;
+    height: 54px;
+    font-size: 18px;
+
+    @media (min-width: 960px) {
+      background: white;
+      color: black;
+      height: 37px;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: scale(1, 1) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.2, 1.2) rotate(360deg);
+  }
+
+  to {
+    transform: scale(1, 1) rotate(360deg);
+  }
+}
+
+@keyframes temble {
+  0% {
+    -webkit-transform: rotateZ(-5deg);
+  }
+  10% {
+    -webkit-transform: rotateZ(0deg) scale(0.8);
+  }
+  20% {
+    -webkit-transform: rotateZ(5deg) scale(0.8);
+  }
+  30% {
+    -webkit-transform: rotateZ(0deg) scale(0.8);
+  }
+  40% {
+    -webkit-transform: rotateZ(5deg) scale(0.8);
+  }
+  50% {
+    -webkit-transform: rotateZ(0deg) scale(0.8);
+  }
+  60% {
+    -webkit-transform: rotateZ(5deg) scale(0.8);
+  }
+  70% {
+    -webkit-transform: rotateZ(0deg) scale(0.8);
+  }
+  80% {
+    -webkit-transform: rotateZ(5deg) scale(0.8);
+  }
+  100% {
+    -webkit-transform: rotateZ(0deg) scale(1);
+  }
+}
