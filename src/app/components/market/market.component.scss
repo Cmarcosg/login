@@ -1,0 +1,52 @@
+.title{
+text-align: center;
+color:black;
+}
+
+ion-searchbar {
+    --placeholder-color : black ;
+    --background:white;
+    width: 260px; 
+    margin: auto;
+    top: -10px;
+}
+.postres{
+    text-align: center;
+}
+
+.cuerpo{
+    background-color: white;
+    color: black;
+    padding: 8px;
+    overflow:scroll;
+    
+}
+.card{
+    background-color: white;
+    height: 90%;
+}
+.precios{
+    display: flex;
+}
+.precio{
+    color:black;
+    margin-right: 10px;
+
+}
+.precio2{
+    color:grey;
+    font-size: small;
+    display: flex;
+}
+.nombre{
+    color:black;
+    
+}
+.descripcion{
+    color:grey;
+    font-size: small;
+    
+}
+.card:hover{
+    box-shadow:  8px 8px 10px 0;;
+}
