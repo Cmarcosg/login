@@ -6,16 +6,16 @@
     </div>
   </div>
 </ion-header>
-<body class="cuerpo">
+<body class="cuerpo" >
   <div>
-    <h3 class="postres">
+    <h3 class="postres" >
       <ion-icon name="heart-outline"></ion-icon>
       Seleccion de postres
     </h3>
   </div>
-  <ion-row>
+  <ion-row  class=" row col-cols-5 row-cols-sm-5 g-1">
     <ion-col class="img" *ngFor="let product of products">
-      <ion-card class="card">
+      <ion-card class="card" >
         <ion-img  [src]="getImgUrl(product.imgUrl)"></ion-img>
         <ion-card-header class="precios">
           <ion-card-title class="precio">{{product.price}}</ion-card-title>
@@ -23,7 +23,9 @@
         <ion-card-content class="nombre">
           {{product.productName}}
           <div class="descripcion">{{product.productDescription}}</div>
-          <ion-button routerLink="market/idproduct"> ver mas </ion-button>
+          <div>
+          <ion-button> ver mas </ion-button>
+        </div>
         </ion-card-content>
       </ion-card>
     </ion-col>

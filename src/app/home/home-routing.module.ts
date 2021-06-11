@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: HomePage,
   },
-  { path: 'market/:idproduct', 
+  { path: '/:idproduct', 
   component: IdproductComponent 
 },
 ];

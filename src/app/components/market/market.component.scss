@@ -13,7 +13,9 @@ ion-searchbar {
 .postres{
     text-align: center;
 }
-
+.row{
+    justify-content: center;
+}
 .cuerpo{
     background-color: white;
     color: black;
@@ -22,30 +24,20 @@ ion-searchbar {
     
 }
 .card{
+    background-size: contain;
     background-color: white;
-    height: 90%;
-}
-.precios{
-    display: flex;
+    height:  auto;
 }
 .precio{
     color:black;
-    margin-right: 10px;
-
-}
-.precio2{
-    color:grey;
-    font-size: small;
-    display: flex;
+    text-align: left;
 }
 .nombre{
     color:black;
-    
 }
 .descripcion{
     color:grey;
     font-size: small;
-    
 }
 .card:hover{
     box-shadow:  8px 8px 10px 0;;

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute,Route} from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {ProductosService} from '../market/productos.service';
-
+import { switchMap } from 'rxjs/operators';
+import { Productos } from 'src/modelo/productos';
 
 @Component({
   selector: 'app-idproduct',
@@ -10,10 +11,12 @@ import {ProductosService} from '../market/productos.service';
 })
 export class IdproductComponent implements OnInit {
 
-  public product: any = {};
 
-  constructor(private route: ActivatedRoute,private productosservice:ProductosService) { }
+
+  constructor(  private route: ActivatedRoute,private router: Router,private productosservice:ProductosService) { }
 
   ngOnInit() {
+   
   }
+ 
 }
