@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import {ProductosService} from '../market/productos.service';
-import { switchMap } from 'rxjs/operators';
+import { ProductosService } from '../market/productos.service';
 import { Productos } from 'src/modelo/productos';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-idproduct',
@@ -11,12 +11,30 @@ import { Productos } from 'src/modelo/productos';
 })
 export class IdproductComponent implements OnInit {
 
+  products: any;
 
+  constructor(private productosservice: ProductosService, private modalcontroller: ModalController) { }
 
-  constructor(  private route: ActivatedRoute,private router: Router,private productosservice:ProductosService) { }
+  @Input() idproduct: string;
+  @Input() productname: string;
+  @Input() productprice: string;
+  @Input() productdescription: string;
+  @Input() img: string;
 
   ngOnInit() {
-   
+    this.getProductsById();
   }
- 
+
+  getProductsById() {
+    this.productosservice.getidproducts(this.idproduct).subscribe(Response => {
+      this.products = Response;
+      console.log(this.products);
+
+    })
+  }
+
+  async closeModal() {
+    await this.modalcontroller.dismiss();
+  }
+
 }

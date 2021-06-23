@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomePageRoutingModule } from './home-routing.module';
 import { LoginComponent } from '../components/login/login.component';
 import { marketComponent } from '../components/market/market.component';
+import { IdproductComponent } from '../components/idproduct/idproduct.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { marketComponent } from '../components/market/market.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  declarations: [HomePage, LoginComponent, marketComponent],
+  declarations: [HomePage, LoginComponent, marketComponent,IdproductComponent],
 })
 export class HomePageModule {}

@@ -9,9 +9,7 @@ const routes: Routes = [
     path: '',
     component: HomePage,
   },
-  { path: '/:idproduct', 
-  component: IdproductComponent 
-},
+ 
 ];
 
 @NgModule({

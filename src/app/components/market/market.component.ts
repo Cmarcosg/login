@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { ProductosService } from '../market/productos.service';
 import { IMG_URL } from '../market/constantes';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Productos } from 'src/modelo/productos';
-import { Observable} from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { ModalController } from '@ionic/angular';
+import { IdproductComponent } from '../idproduct/idproduct.component';
+import { CartComponent } from '../cart/cart.component';
 @Component({
   selector: 'app-market',
   templateUrl: './market.component.html',
@@ -14,28 +14,43 @@ import { switchMap } from 'rxjs/operators';
 export class marketComponent implements OnInit {
 
   products: any;
-  product!: Observable<Productos[]>;
-  selectedId = 0;
+  constructor(private productosservice: ProductosService, private router: Router, private route: ActivatedRoute,private modalCtrl:ModalController) { }
 
-  constructor(private productosservice: ProductosService, private router: Router, private route: ActivatedRoute) { }
+   async openModal(product){
+    const modal = await this.modalCtrl.create({
+      component: IdproductComponent,
+      componentProps:{
+        idproduct : product.idProduct,
+        productname :product.productName,
+        productprice : product.price,
+        productdescription : product.productDescription,
+        img: this.getImgUrl(product.imgUrl)
+      }
+    });
+    await modal.present();
+  }
 
+  async abrircarrito() {
+    let modal = await this.modalCtrl.create({
+      component: CartComponent,
+      cssClass: 'cart-modal'
+    });
+    modal.present();
+  }
   ngOnInit() {
 
     this.productosservice.getproducts().subscribe(Response => {
       this.products = Response;
       console.log(this.products);
     })
-    
-    this.product = this.route.paramMap.pipe(
-      switchMap(params => {
-        this.selectedId = parseInt(params.get('idProduct')!);
-        return this.productosservice.getproducts();
-      })
-    );
   }
 
   getImgUrl(currentproductUri) {
     console.log(currentproductUri);
     return `${IMG_URL.productsUri}${currentproductUri}`;
+  }
+
+  addProductToCart(product) {
+    
   }
 }

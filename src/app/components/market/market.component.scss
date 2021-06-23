@@ -26,8 +26,9 @@ ion-searchbar {
 .card{
     background-size: contain;
     background-color: white;
-    height:  auto;
+    height: 340pt;
 }
+
 .precio{
     color:black;
     text-align: left;
@@ -41,4 +42,7 @@ ion-searchbar {
 }
 .card:hover{
     box-shadow:  8px 8px 10px 0;;
+}
+ion-button{
+    position: absolute;
 }

@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { pipe  }  from 'rxjs';
 import { Observable, of } from 'rxjs';
-import { IdproductComponent } from '../idproduct/idproduct.component';
-import { Productos } from 'src/modelo/productos';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +14,9 @@ export class ProductosService {
   getproducts(): Observable<any>{
     return this.http.get('https://www.clusterbeat.com/market/API/index.php?a=getProductsByTypeId&typeId=1').pipe();
   }
+  
+  getidproducts(idProduct): Observable<any>{
+    return this.http.get('https://www.clusterbeat.com/market/API/index.php?a=getProductById&idProduct='+idProduct).pipe();
+  }
+  
 }
