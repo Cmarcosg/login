@@ -56,7 +56,10 @@ export class marketComponent implements OnInit {
     this.cartItemCount= this.productosservice.getCartItemCount();
 
   }
+  toogleMenu() {
 
+
+  }
   getImgUrl(currentproductUri) {
     return `${IMG_URL.productsUri}${currentproductUri}`;
   }

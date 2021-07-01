@@ -1,4 +1,10 @@
 <ion-header>
+  <ion-buttons slot="start" color="primary">
+    <ion-button (click)="toogleMenu()">
+      <ion-icon slot="icon-only" name="menu">
+      </ion-icon>
+    </ion-button>
+  </ion-buttons>
   <h1 class="title">Tienda online</h1>
   <ion-button color="primary" shape="round" (click)="OpenCart()">
     <ion-icon name="cart-outline"></ion-icon>
