@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
-import { ProductosService } from '../market/productos.service';
-import { IMG_URL } from '../market/constantes';
-import { Router, ActivatedRoute } from '@angular/router';
-import { ModalController } from '@ionic/angular';
-import { IdproductComponent } from '../idproduct/idproduct.component';
-import { CartComponent } from '../cart/cart.component';
+import { Component,ElementRef,OnInit,ViewChild,} from '@angular/core';
+import { ProductosService} from '../../services/productos.service';
+import { IMG_URL} from '../market/constantes';
+import { Router, ActivatedRoute} from '@angular/router';
+import { ModalController} from '@ionic/angular';
+import {IdproductComponent} from '../idproduct/idproduct.component';
+import {  CartComponent } from '../cart/cart.component';
+import { StorageCartService  } from 'src/app/services/storageCart.service';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-market',
   templateUrl: './market.component.html',
@@ -14,23 +16,29 @@ import { CartComponent } from '../cart/cart.component';
 export class marketComponent implements OnInit {
 
   products: any;
-  constructor(private productosservice: ProductosService, private router: Router, private route: ActivatedRoute,private modalCtrl:ModalController) { }
+  cartArray : any;
+  cartItemCount: BehaviorSubject<number>;
 
-   async openModal(product){
+  @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
+  
+  constructor(private storageService: StorageCartService, private productosservice: ProductosService, private router: Router, private route: ActivatedRoute, private modalCtrl: ModalController) {}
+
+  async openModal(product) {
     const modal = await this.modalCtrl.create({
       component: IdproductComponent,
-      componentProps:{
-        idproduct : product.idProduct,
-        productname :product.productName,
-        productprice : product.price,
-        productdescription : product.productDescription,
+      componentProps: {
+        idproduct: product.idProduct,
+        productname: product.productName,
+        productprice: product.price,
+        productdescription: product.productDescription,
         img: this.getImgUrl(product.imgUrl)
       }
     });
     await modal.present();
   }
 
-  async abrircarrito() {
+
+  async OpenCart() {
     let modal = await this.modalCtrl.create({
       component: CartComponent,
       cssClass: 'cart-modal'
@@ -41,16 +49,37 @@ export class marketComponent implements OnInit {
 
     this.productosservice.getproducts().subscribe(Response => {
       this.products = Response;
-      console.log(this.products);
     })
+    
+    this.cartArray = this.productosservice.getproducts();
+
+    this.cartItemCount= this.productosservice.getCartItemCount();
+
   }
 
   getImgUrl(currentproductUri) {
-    console.log(currentproductUri);
     return `${IMG_URL.productsUri}${currentproductUri}`;
   }
 
-  addProductToCart(product) {
+  addProduct(product){
+    this.productosservice.addProductToCart(product);
+    this.storageService.updateLocalStorage("cart",this.cartArray)
     
+  }
+  removeproduct(product){
+    this.productosservice.decreaseProduct(product);
+    this.storageService.updateLocalStorage("cart",this.cartArray)
+    
+  }
+  
+ 
+  async openCart() {
+    let modal = await this.modalCtrl.create({
+      component: CartComponent,
+      cssClass: 'cart-modal'
+    });
+    modal.onWillDismiss().then(() => {
+    });
+    modal.present();
   }
 }

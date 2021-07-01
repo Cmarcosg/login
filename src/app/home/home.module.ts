@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { LoginComponent } from '../components/login/login.component';
 import { marketComponent } from '../components/market/market.component';
 import { IdproductComponent } from '../components/idproduct/idproduct.component';
+import { CartComponent } from '../components/cart/cart.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { IdproductComponent } from '../components/idproduct/idproduct.component'
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  declarations: [HomePage, LoginComponent, marketComponent,IdproductComponent],
+  declarations: [HomePage, LoginComponent, marketComponent,IdproductComponent,CartComponent],
 })
 export class HomePageModule {}

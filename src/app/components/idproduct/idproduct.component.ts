@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ProductosService } from '../market/productos.service';
+import { ProductosService } from '../../services/productos.service';
 import { Productos } from 'src/modelo/productos';
 import { ModalController } from '@ionic/angular';
 

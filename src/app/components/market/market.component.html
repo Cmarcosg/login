@@ -1,6 +1,6 @@
 <ion-header>
   <h1 class="title">Tienda online</h1>
-  <ion-button color="primary" shape="round" (click)="abrircarrito()">
+  <ion-button color="primary" shape="round" (click)="OpenCart()">
     <ion-icon name="cart-outline"></ion-icon>
   </ion-button>
   <div class="box">
@@ -20,8 +20,8 @@
   </div>
   <ion-row class=" row col-cols-5 row-cols-sm-5 g-1">
     <ion-col class="img" *ngFor="let product of products">
-      <ion-card class="card" (click)="openModal(product)">
-        <ion-img style="width: auto; height: auto;" [src]="getImgUrl(product.imgUrl)"></ion-img>
+      <ion-card class="card">
+        <ion-img style="width: auto; height: auto;" [src]="getImgUrl(product.imgUrl)" (click)="openModal(product)"></ion-img>
         <ion-card-header class="precios">
           <ion-card-title class="precio">{{product.price}}</ion-card-title>
         </ion-card-header>
@@ -30,9 +30,14 @@
           <div class="descripcion">{{product.productDescription}}</div>
         </ion-card-content>
         <ion-col size="4" class="ion-text-right" >
-          <ion-button fill="clear">
-            <ion-icon name="add" (click)="addProductToCart(product)"></ion-icon>
+          <ion-button  (click)="addProduct(product)">
+            <ion-icon name="add"></ion-icon>
           </ion-button>
+          <div class="remove">
+          <ion-button  (click)="removeproduct(product)">
+            <ion-icon name="remove-circle"></ion-icon>
+          </ion-button>
+        </div>
         </ion-col>
       </ion-card>
     </ion-col>

@@ -22,6 +22,7 @@
     "@capacitor/core": "2.4.7",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@ionic/angular": "^5.5.2",
+    "@ionic/storage-angular": "^3.0.6",
     "@types/chart.js": "^2.9.32",
     "angular": "^1.8.2",
     "angular-bootstrap-md": "^11.1.0",
