@@ -1,16 +1,23 @@
 <ion-header>
   <h1 class="title">Tienda online</h1>
-  <!-- Declaracion del menu // -->
-  <ion-buttons color="primary" shape="round">
-    <ion-button (click)="toogleMenu()">
-      <ion-icon name="menu">
-      </ion-icon>
-    </ion-button>
-  </ion-buttons>
-  <!-- fin del menu -->
-  <ion-button color="primary" shape="round" (click)="OpenCart()">
-    <ion-icon name="cart-outline"></ion-icon>
-  </ion-button>
+    <!-- Declaracion del menu // -->
+    <ion-buttons color="primary" shape="round">
+      <ion-button (click)="toogleMenu()">
+        <ion-icon name="menu">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- fin del menu -->
+    <!-- Btn carro -->
+    <div class="btn">
+      <div class="cart">
+          <ion-button color="primary" shape="round" (click)="OpenCart()">
+            <ion-icon name="cart-outline"></ion-icon>
+          </ion-button>
+      </div>
+    </div>
+    <!-- Fin Btn carro -->
+    <!-- Buscador -->
   <div class="box">
     <div class="buscador">
       <ion-searchbar inputmode="text" placeholder="busca en la tienda"></ion-searchbar>
@@ -22,16 +29,16 @@
   <ion-menu side="start" menuId="first" contentId="menu">
     <ion-header>
       <ion-toolbar color="primary">
-        <ion-title>Start Menu</ion-title>
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
         <ion-item>Categorias</ion-item>
-        <ion-item>Vision</ion-item>
-        <ion-item>carro</ion-item>
+        <ion-item>Caracteristicas</ion-item>
+        <ion-item>Blog</ion-item>
         <ion-item>Zona</ion-item>
-        <ion-item>entrar</ion-item>
+        <ion-item>Comenzar</ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
