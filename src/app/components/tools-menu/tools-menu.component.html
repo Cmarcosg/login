@@ -1,0 +1,18 @@
+<div class="tools-menu__container">
+  <ul>
+    <li *ngFor="let item of itemsList" [ngClass]="getClasses(item)">
+      <img
+        *ngIf="item.img && hasSomeDocumentSelected()"
+        [src]="item.img"
+        (click)="onClick(item)"
+        title="{{ item.tooltip | translate }}"
+      />
+      <span
+        title="{{ item.tooltip | translate }}"
+        *ngIf="!item.img && hasSomeDocumentSelected()"
+        (click)="onClick(item)"
+        >{{ item.name | translate }}</span
+      >
+    </li>
+  </ul>
+</div>

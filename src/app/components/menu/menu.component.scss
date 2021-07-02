@@ -1,0 +1,36 @@
+@import 'variables';
+.tools-menu {
+  &__container {
+    width: 100%;
+    margin-bottom: 10px;
+    color: $white;
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0;
+      height: 30px;
+    }
+
+    li {
+      padding: 6px;
+      border-radius: 9px;
+      list-style: none;
+      color: $primary;
+      margin-right: 28px;
+      cursor: pointer;
+
+      &.disabled {
+        color: $greyPlaceHolder;
+      }
+
+      &:hover {
+        background-color: $primaryLight;
+        height: fit-content;
+      }
+    }
+  }
+}
